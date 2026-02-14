@@ -1,6 +1,163 @@
 /* ========================================
    GlobeMate — Main Application Logic
+   React-like Component Architecture
    ======================================== */
+
+// ============ COMPONENT BASE CLASS ============
+class Component {
+  constructor(props = {}) {
+    this.props = props;
+    this.state = {};
+    this.el = null;
+  }
+
+  setState(newState) {
+    this.state = { ...this.state, ...newState };
+    this.render();
+  }
+
+  render() {
+    // Override in subclasses
+  }
+
+  mount(parent) {
+    if (typeof parent === 'string') {
+      parent = document.querySelector(parent);
+    }
+    if (parent && this.el) {
+      parent.appendChild(this.el);
+    }
+  }
+
+  unmount() {
+    if (this.el && this.el.parentNode) {
+      this.el.parentNode.removeChild(this.el);
+    }
+  }
+}
+
+// ============ REUSABLE COMPONENT UTILITIES ============
+class Card extends Component {
+  constructor(props) {
+    super(props);
+    this.createCard();
+  }
+
+  createCard() {
+    const card = document.createElement('div');
+    card.className = `card ${this.props.className || ''}`;
+    card.innerHTML = this.props.content || '';
+    this.el = card;
+    return card;
+  }
+
+  render() {
+    if (this.el) {
+      this.el.innerHTML = this.props.content || '';
+    }
+  }
+}
+
+class Button extends Component {
+  constructor(props) {
+    super(props);
+    this.createButton();
+  }
+
+  createButton() {
+    const btn = document.createElement('button');
+    btn.className = `btn ${this.props.variant || 'btn-primary'} ${this.props.className || ''}`;
+    btn.innerHTML = `${this.props.icon ? `<i class="${this.props.icon}"></i>` : ''} ${this.props.text || ''}`;
+    btn.onclick = this.props.onClick || (() => {});
+    this.el = btn;
+    return btn;
+  }
+}
+
+class AnimatedSection extends Component {
+  constructor(props) {
+    super(props);
+    this.observeIntersection();
+  }
+
+  observeIntersection() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (this.el) {
+      observer.observe(this.el);
+    }
+  }
+}
+
+// ============ SPLASH SCREEN COMPONENT ============
+class SplashScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isActive: true
+    };
+  }
+
+  init() {
+    this.el = document.getElementById('splashScreen');
+    this.startTransition();
+  }
+
+  startTransition() {
+    // Wait for 3 seconds, then fade out
+    setTimeout(() => {
+      this.fadeOut();
+    }, 3000);
+  }
+
+  fadeOut() {
+    this.el.classList.add('fade-out');
+    
+    // Once fade out completes, show main app
+    setTimeout(() => {
+      this.el.style.display = 'none';
+      document.getElementById('mainApp').classList.add('visible');
+      
+      // Trigger init callback if provided
+      if (this.props.onComplete) {
+        this.props.onComplete();
+      }
+    }, 800);
+  }
+}
+
+// ============ APP CONTROLLER ============
+const App = {
+  splash: null,
+  
+  init() {
+    // Initialize splash screen
+    this.splash = new SplashScreen({
+      onComplete: () => {
+        // Initialize main app components after splash
+        this.initMainApp();
+      }
+    });
+    this.splash.init();
+  },
+
+  initMainApp() {
+    // Initialize all main app features
+    TabNav.init();
+    TripPlanner.init();
+    CountryExplorer.init();
+    SafetyCenter.init();
+    PackingList.init();
+    CurrencyConverter.init();
+    DocumentStore.init();
+  }
+};
 
 // ============ UTILITIES ============
 const $ = (sel) => document.querySelector(sel);
@@ -1170,12 +1327,6 @@ window.MapExplorer = MapExplorer;
 
 // ============ INITIALIZE APP ============
 document.addEventListener('DOMContentLoaded', () => {
-  TabNav.init();
-  TripPlanner.init();
-  CountryExplorer.init();
-  SafetyCenter.init();
-  PackingList.init();
-  CurrencyConverter.init();
-  DocumentStore.init();
+  App.init();
   // Map initializes lazily when the Maps tab is first opened
 });

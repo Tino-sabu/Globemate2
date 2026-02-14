@@ -1,0 +1,105 @@
+<!-- ============ COUNTRY INFO & VISA ============ -->
+<section class="section section-alt tab-section" id="country-info">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge"><i class="fas fa-flag"></i> Country Explorer</span>
+      <h2 class="section-title">Country Info & Visa Checker</h2>
+      <p class="section-desc">Get essential information about any country and check visa eligibility.</p>
+    </div>
+
+    <div class="search-bar-wrapper">
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" id="countrySearch" placeholder="Search for a country... (e.g., Japan, Brazil, Germany)" autocomplete="off">
+      </div>
+      <div id="countrySuggestions" class="suggestions-dropdown hidden"></div>
+    </div>
+
+    <div id="countryResult" class="country-result hidden">
+      <div class="country-header-card">
+        <div class="country-flag-wrap">
+          <img id="countryFlag" src="" alt="Flag">
+        </div>
+        <div class="country-title-info">
+          <h3 id="countryName"></h3>
+          <p id="countryOfficialName" class="text-muted"></p>
+        </div>
+      </div>
+      <div class="country-grid">
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-city"></i></div>
+          <div class="info-content">
+            <span class="info-label">Capital</span>
+            <span class="info-value" id="countryCapital"></span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-globe"></i></div>
+          <div class="info-content">
+            <span class="info-label">Region</span>
+            <span class="info-value" id="countryRegion"></span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-users"></i></div>
+          <div class="info-content">
+            <span class="info-label">Population</span>
+            <span class="info-value" id="countryPopulation"></span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-language"></i></div>
+          <div class="info-content">
+            <span class="info-label">Languages</span>
+            <span class="info-value" id="countryLanguages"></span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-money-bill-wave"></i></div>
+          <div class="info-content">
+            <span class="info-label">Currency</span>
+            <span class="info-value" id="countryCurrency"></span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-clock"></i></div>
+          <div class="info-content">
+            <span class="info-label">Timezone</span>
+            <span class="info-value" id="countryTimezone"></span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-phone"></i></div>
+          <div class="info-content">
+            <span class="info-label">Calling Code</span>
+            <span class="info-value" id="countryCallingCode"></span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-car"></i></div>
+          <div class="info-content">
+            <span class="info-label">Driving Side</span>
+            <span class="info-value" id="countryDriving"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visa Checker -->
+      <div class="visa-checker card">
+        <h3 class="card-title"><i class="fas fa-passport"></i> Visa Eligibility Checker</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="passportCountry"><i class="fas fa-id-card"></i> Your Passport</label>
+            <select id="passportCountry">
+              <option value="">Select your passport country</option>
+            </select>
+          </div>
+          <div class="form-group" style="display:flex;align-items:flex-end;">
+            <button class="btn btn-primary" id="checkVisaBtn"><i class="fas fa-search"></i> Check Visa</button>
+          </div>
+        </div>
+        <div id="visaResult" class="visa-result hidden"></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+<section class="section tab-section" id="trip-planner">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge"><i class="fas fa-route"></i> Trip Planner</span>
+      <h2 class="section-title">Plan Your Perfect Trip</h2>
+      <p class="section-desc">Organize your itinerary, set budgets, and keep all your trip details in one place.</p>
+    </div>
+
+    <div class="trip-planner-layout">
+      <!-- Trip Form -->
+      <div class="card trip-form-card">
+        <h3 class="card-title"><i class="fas fa-plus-circle"></i> Create New Trip</h3>
+        <form id="tripForm" class="trip-form">
+          <div class="form-group">
+            <label for="tripName"><i class="fas fa-tag"></i> Trip Name</label>
+            <input type="text" id="tripName" placeholder="e.g., European Adventure" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tripDest"><i class="fas fa-map-pin"></i> Destination</label>
+              <input type="text" id="tripDest" placeholder="e.g., Paris, France" required>
+            </div>
+            <div class="form-group">
+              <label for="tripBudget"><i class="fas fa-wallet"></i> Budget (USD)</label>
+              <input type="number" id="tripBudget" placeholder="e.g., 3000" min="0">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tripStart"><i class="fas fa-calendar"></i> Start Date</label>
+              <input type="date" id="tripStart" required>
+            </div>
+            <div class="form-group">
+              <label for="tripEnd"><i class="fas fa-calendar-check"></i> End Date</label>
+              <input type="date" id="tripEnd" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="tripNotes"><i class="fas fa-sticky-note"></i> Notes</label>
+            <textarea id="tripNotes" rows="3" placeholder="Any special plans or notes..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-save"></i> Save Trip</button>
+        </form>
+      </div>
+
+      <!-- Itinerary -->
+      <div class="card itinerary-card">
+        <h3 class="card-title"><i class="fas fa-list-ol"></i> Itinerary</h3>
+        <div id="itinerarySection" class="itinerary-section">
+          <div class="empty-state" id="itineraryEmpty">
+            <i class="fas fa-map-signs"></i>
+            <p>Create a trip to start adding activities</p>
+          </div>
+          <div id="itineraryBuilder" class="hidden">
+            <div class="itinerary-add">
+              <input type="text" id="activityInput" placeholder="Add an activity...">
+              <input type="time" id="activityTime">
+              <button class="btn btn-sm btn-primary" id="addActivityBtn"><i class="fas fa-plus"></i></button>
+            </div>
+            <ul id="activityList" class="activity-list"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saved Trips -->
+      <div class="card saved-trips-card">
+        <h3 class="card-title"><i class="fas fa-suitcase"></i> My Trips</h3>
+        <div id="savedTrips" class="saved-trips">
+          <div class="empty-state">
+            <i class="fas fa-plane-departure"></i>
+            <p>No trips yet. Create your first adventure!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

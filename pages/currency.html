@@ -1,0 +1,35 @@
+<section class="section tab-section" id="currency">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge"><i class="fas fa-coins"></i> Currency</span>
+      <h2 class="section-title">Currency Converter</h2>
+      <p class="section-desc">Get real-time exchange rates and convert between 160+ currencies.</p>
+    </div>
+
+    <div class="currency-converter card">
+      <div class="converter-layout">
+        <div class="converter-from">
+          <label>From</label>
+          <select id="currencyFrom"></select>
+          <input type="number" id="amountFrom" value="1" min="0" step="0.01">
+        </div>
+        <button class="swap-btn" id="swapCurrency" title="Swap currencies">
+          <i class="fas fa-exchange-alt"></i>
+        </button>
+        <div class="converter-to">
+          <label>To</label>
+          <select id="currencyTo"></select>
+          <input type="number" id="amountTo" readonly>
+        </div>
+      </div>
+      <div class="exchange-info">
+        <p id="exchangeRate" class="exchange-rate"></p>
+        <p id="exchangeDate" class="exchange-date"></p>
+      </div>
+      <div class="popular-currencies">
+        <h4>Quick Convert</h4>
+        <div class="currency-chips" id="currencyChips"></div>
+      </div>
+    </div>
+  </div>
+</section>

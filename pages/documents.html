@@ -1,0 +1,93 @@
+<!-- ============ DOCUMENT STORAGE ============ -->
+<section class="section section-alt tab-section" id="documents">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge"><i class="fas fa-folder-open"></i> Documents</span>
+      <h2 class="section-title">Document Storage & Reminders</h2>
+      <p class="section-desc">Securely store travel documents and set important reminders.</p>
+    </div>
+
+    <div class="documents-layout">
+      <div class="card doc-upload-card">
+        <h3 class="card-title"><i class="fas fa-cloud-upload-alt"></i> Store Documents</h3>
+        <form id="docForm">
+          <div class="form-group">
+            <label for="docName"><i class="fas fa-file-alt"></i> Document Name</label>
+            <input type="text" id="docName" placeholder="e.g., Passport, Boarding Pass" required>
+          </div>
+          <div class="form-group">
+            <label for="docType"><i class="fas fa-tag"></i> Document Type</label>
+            <select id="docType">
+              <option value="passport">Passport</option>
+              <option value="visa">Visa</option>
+              <option value="ticket">Ticket / Boarding Pass</option>
+              <option value="hotel">Hotel Booking</option>
+              <option value="insurance">Travel Insurance</option>
+              <option value="id">ID Card</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="docExpiry"><i class="fas fa-calendar-times"></i> Expiry Date (optional)</label>
+            <input type="date" id="docExpiry">
+          </div>
+          <div class="form-group">
+            <label for="docNotes"><i class="fas fa-sticky-note"></i> Notes</label>
+            <textarea id="docNotes" rows="2" placeholder="Document number, details..."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="file-upload-label" for="docFile">
+              <i class="fas fa-paperclip"></i> Attach File (stored locally)
+              <input type="file" id="docFile" accept="image/*,.pdf">
+            </label>
+            <span id="fileName" class="file-name"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-save"></i> Save Document</button>
+        </form>
+      </div>
+
+      <div class="card doc-reminder-card">
+        <h3 class="card-title"><i class="fas fa-bell"></i> Set Reminder</h3>
+        <form id="reminderForm">
+          <div class="form-group">
+            <label for="reminderTitle"><i class="fas fa-bookmark"></i> Reminder Title</label>
+            <input type="text" id="reminderTitle" placeholder="e.g., Renew Passport" required>
+          </div>
+          <div class="form-group">
+            <label for="reminderDate"><i class="fas fa-calendar"></i> Reminder Date</label>
+            <input type="date" id="reminderDate" required>
+          </div>
+          <div class="form-group">
+            <label for="reminderPriority"><i class="fas fa-exclamation-triangle"></i> Priority</label>
+            <select id="reminderPriority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-bell"></i> Set Reminder</button>
+        </form>
+      </div>
+
+      <div class="card doc-list-card">
+        <h3 class="card-title"><i class="fas fa-archive"></i> My Documents</h3>
+        <div id="documentsList" class="documents-list">
+          <div class="empty-state">
+            <i class="fas fa-folder-plus"></i>
+            <p>No documents stored yet</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card reminders-list-card">
+        <h3 class="card-title"><i class="fas fa-tasks"></i> My Reminders</h3>
+        <div id="remindersList" class="reminders-list">
+          <div class="empty-state">
+            <i class="fas fa-bell-slash"></i>
+            <p>No reminders set yet</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

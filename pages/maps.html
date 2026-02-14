@@ -1,0 +1,37 @@
+<section class="section tab-section" id="maps">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge"><i class="fas fa-map-marked-alt"></i> Maps</span>
+      <h2 class="section-title">Maps & Location Explorer</h2>
+      <p class="section-desc">Explore destinations, find nearby places, and plan routes on an interactive map.</p>
+    </div>
+
+    <div class="map-layout">
+      <div class="map-controls card">
+        <div class="map-search-wrapper">
+          <div class="map-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="mapSearch" placeholder="Search for cities, countries, landmarks..." autocomplete="off">
+            <button class="btn btn-primary btn-sm" id="mapSearchBtn">Search</button>
+          </div>
+          <div id="mapSearchResults" class="map-search-results"></div>
+        </div>
+        <div class="map-actions">
+          <button class="btn btn-outline btn-sm" id="locateMeBtn"><i class="fas fa-crosshairs"></i> My Location</button>
+          <button class="btn btn-outline btn-sm" id="clearMarkersBtn"><i class="fas fa-trash-alt"></i> Clear Markers</button>
+        </div>
+      </div>
+      
+      <div class="map-container">
+        <div id="map" class="map-view"></div>
+      </div>
+
+      <div class="saved-places card">
+        <h4><i class="fas fa-star"></i> Saved Places</h4>
+        <div id="savedPlaces" class="saved-places-list">
+          <p class="text-muted text-sm">Click on map to save places</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

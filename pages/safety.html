@@ -1,0 +1,57 @@
+<!-- ============ SAFETY INDEX ============ -->
+<section class="section tab-section" id="safety">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge"><i class="fas fa-shield-alt"></i> Safety Center</span>
+      <h2 class="section-title">Safety Index & Emergency Contacts</h2>
+      <p class="section-desc">Stay informed with safety ratings and emergency numbers for your destination.</p>
+    </div>
+
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" id="safetySearch" placeholder="Enter a country name... (e.g., Thailand, Mexico)" autocomplete="off">
+      <button class="btn btn-primary" id="safetySearchBtn"><i class="fas fa-shield-alt"></i> Check Safety</button>
+    </div>
+
+    <div id="safetyResult" class="hidden">
+      <div class="safety-overview">
+        <div class="safety-score-card card">
+          <h3><i class="fas fa-tachometer-alt"></i> Safety Score</h3>
+          <div class="safety-gauge">
+            <div class="gauge-circle" id="safetyGauge">
+              <span class="gauge-value" id="safetyScore">--</span>
+              <span class="gauge-label">/ 100</span>
+            </div>
+          </div>
+          <p class="safety-level" id="safetyLevel"></p>
+        </div>
+
+        <div class="emergency-card card">
+          <h3><i class="fas fa-phone-alt"></i> Emergency Numbers</h3>
+          <div class="emergency-numbers">
+            <div class="emergency-item">
+              <i class="fas fa-ambulance"></i>
+              <span class="emergency-label">Ambulance</span>
+              <span class="emergency-number" id="emergencyAmbulance">--</span>
+            </div>
+            <div class="emergency-item">
+              <i class="fas fa-fire-extinguisher"></i>
+              <span class="emergency-label">Fire</span>
+              <span class="emergency-number" id="emergencyFire">--</span>
+            </div>
+            <div class="emergency-item">
+              <i class="fas fa-shield-alt"></i>
+              <span class="emergency-label">Police</span>
+              <span class="emergency-number" id="emergencyPolice">--</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="safety-tips card">
+        <h3><i class="fas fa-lightbulb"></i> Travel Safety Tips</h3>
+        <ul id="safetyTips" class="tips-list"></ul>
+      </div>
+    </div>
+  </div>
+</section>
